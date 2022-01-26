@@ -37,6 +37,19 @@
 (deftheme kuronami
   "Kuronami theme for Emacs. Cool colors against a deep blue background.")
 
+;; NOTE: Kuronami colors with the same name generally have a dark-less-intense
+;;       to a light-more-intense arrangement such that the former gets a lower
+;;       number and the latter, a higher number. For example, "kuronami-blue-00"
+;;       has a darker, less intense blue than "kuronami-blue-01," which has a
+;;       lighter, more intense blue.
+;;
+;;       The author has historically struggled seeing and describing colors the
+;;       way others do so please show some leniency if these descriptions do not
+;;       make sense.
+;;
+;;       As mentioned earlier, each color declaration has an in-line comment
+;;       describing its origin or derivation.
+;;
 (let ((kuronami-black-00  "#181a26")  ; Stolen from the Deeper Blue Emacs theme.
       (kuronami-black-01  "#202129")  ; black-02 -> 3 Shades darker.
       (kuronami-black-02  "#2f303b")  ; black-00 -> 1 Tint lighter.
@@ -106,7 +119,7 @@
    `(completions-first-difference ((t (:foreground ,kuronami-orange-00 :bold t))))
 
    ;; Flyspell:
-   `(flyspell-duplicate ((t nil))) ; NOTE: Setting "flyspell-duplicate-distance" does not work for Emacs 27.2 on macOS x86 so disable the Face for now I guess.
+   `(flyspell-duplicate ((t nil))) ; Setting "flyspell-duplicate-distance" does not work for Emacs 27.2 on macOS x86 so disable the Face. For now.
    `(flyspell-incorrect
      ((((supports :underline (:style wave))) (:underline (:color ,kuronami-red-00 :style wave)))
       (t (:foreground ,kuronami-red-00 :underline t :weight bold)))) ; For terminal Emacsclient.
@@ -161,7 +174,7 @@
    `(markdown-language-keyword-face ((t (:foreground ,kuronami-blue-02))))
 
    ;; Rust:
-   `(rust-builtin-formatting-macro ((t (:inherit font-lock-preprocessor-face)))))) ; Not sure why this package uses a different color for these macros.
+   `(rust-builtin-formatting-macro ((t (:inherit font-lock-preprocessor-face)))))) ; Macros get one color.
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)

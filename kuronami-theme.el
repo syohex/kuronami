@@ -1,7 +1,7 @@
 ;;; kuronami-theme.el --- A deep blue theme with cool autumnal colors.
 
 ;; Author: Eric Chung <>
-;; Version: 0.0
+;; Version: 1.0
 ;; Filename: kuronami-theme.el
 ;; Package-Requires: ((emacs "24"))
 ;; URL: https://github.com/super3ggo/kuronami
@@ -23,14 +23,14 @@
 ;; Generally, only Faces that do not use Inherit have themed coloring though
 ;; exceptions exist.
 
-;; A total of sixteen colors make up this theme. Seven of them stolen from other
+;; A total of sixteen colors make up this theme. Eight of them stolen from other
 ;; Emacs themes or sampled from the Internet using color identifying software.
-;; The other nine then derive from a subset of these seven. The website
+;; The other eight then derive from a subset of this first half. The website
 ;; https://www.color-hex.com provided much needed assistance in selecting these
 ;; derived colors according to the Analogous, Complementary, Triadic, Tint, and
 ;; Shade properties provided there. This theme's color declarations contain
 ;; in-line comments, attempting to explain the respective derivation process in
-;; addition to crediting the sources of the main seven colors.
+;; addition to crediting sources accordingly.
 
 ;;; Code:
 
@@ -53,17 +53,17 @@
 (let ((kuronami-black-00  "#181a26")  ; Stolen from the Deeper Blue Emacs theme.
       (kuronami-black-01  "#202129")  ; black-02 -> 3 Shades darker.
       (kuronami-black-02  "#2f303b")  ; black-00 -> 1 Tint lighter.
-      (kuronami-blue-00   "#455196")  ; blue-01 -> 2 Tints lighter #5766bc -> 2 Shades darker.
-      (kuronami-blue-01   "#2e41ac")  ; Sampled from an image of NGE Unit-00 (blue).
-      (kuronami-blue-02   "#7fbbe9")  ; Sampled from official Ayanami Blue!
-      (kuronami-blue-03   "#abbfda")  ; yellow-00 -> Complementary #97b0d1 -> 2 Tints lighter.
-      (kuronami-gray-00   "#b3b3b3")  ; Stolen from Emacs default "gray/grey 70."
+      (kuronami-blue-00   "#2e41ac")  ; Sampled from an image of NGE Unit-00 (blue).
+      (kuronami-blue-01   "#7fbbe9")  ; Sampled from official Ayanami Blue!
+      (kuronami-blue-02   "#abbfda")  ; yellow-00 -> Complementary #97b0d1 -> 2 Tints lighter.
+      (kuronami-gray-00   "#595959")  ; Stolen from Emacs default "gray/grey 35."
+      (kuronami-gray-01   "#b3b3b3")  ; Stolen from Emacs default "gray/grey 70."
       (kuronami-green-00  "#708b4c")  ; green-03 -> 4 Shades darker.
       (kuronami-green-01  "#668b8b")  ; Stolen from Emacs default "pale turquoise 4."
-      (kuronami-green-02  "#65bab4")  ; blue-02 -> Analogous #7fe9e2 -> 2 Shades darker.
-      (kuronami-green-03  "#bbe97f")  ; blue-02 -> Triadic.
-      (kuronami-orange-00 "#e9ad7f")  ; blue-02 -> Complementary.
-      (kuronami-red-00    "#e97f86")  ; blue-02 -> Triadic #e97fbb -> Analogous.
+      (kuronami-green-02  "#65bab4")  ; blue-01 -> Analogous #7fe9e2 -> 2 Shades darker.
+      (kuronami-green-03  "#bbe97f")  ; blue-01 -> Triadic.
+      (kuronami-orange-00 "#e9ad7f")  ; blue-01 -> Complementary.
+      (kuronami-red-00    "#e97f86")  ; blue-01 -> Triadic #e97fbb -> Analogous.
       (kuronami-white-00  "#fffafa")  ; Stolen from Emacs default "snow."
       (kuronami-yellow-00 "#d1b897")) ; Stolen from the Naysayer Emacs theme.
   (custom-theme-set-faces
@@ -77,27 +77,26 @@
    `(error               ((t (:foreground ,kuronami-red-00 :weight bold))))
    `(fringe              ((t (:background ,kuronami-black-00))))
    `(highlight           ((t (:background ,kuronami-green-00))))
-   `(hl-line             ((t (:background ,kuronami-blue-00))))
    `(isearch             ((t (:background ,kuronami-red-00 :foreground ,kuronami-black-00))))
    `(lazy-highlight      ((t (:background ,kuronami-green-01))))
-   `(line-number         ((t (:foreground ,kuronami-blue-03))))
+   `(line-number         ((t (:foreground ,kuronami-blue-02))))
    `(link                ((t (:foreground ,kuronami-green-02 :bold t :underline t))))
    `(link-visited        ((t (:inherit link :foreground ,kuronami-yellow-00))))
    `(match               ((t (:inherit lazy-highlight))))
    `(minibuffer-prompt   ((t (:foreground ,kuronami-white-00))))
-   `(region              ((t (:extend nil :background ,kuronami-blue-01)))) ; Mark to one past the final non-whitespace character kinda like Vi!
-   `(show-paren-match    ((t (:background ,kuronami-blue-03))))
+   `(region              ((t (:extend nil :background ,kuronami-blue-00)))) ; Mark to one past the final non-whitespace character kinda like Vi!
+   `(show-paren-match    ((t (:background ,kuronami-blue-02))))
    `(show-paren-mismatch ((t (:background ,kuronami-red-00))))
    `(success             ((t (:foreground ,kuronami-green-03 :weight bold))))
    `(warning             ((t (:foreground ,kuronami-orange-00 :weight bold))))
 
    ;; Font Lock:
    `(font-lock-builtin-face           ((t (:foreground ,kuronami-white-00))))
-   `(font-lock-comment-face           ((t (:foreground ,kuronami-blue-02 :italic t))))
+   `(font-lock-comment-face           ((t (:foreground ,kuronami-blue-01 :italic t))))
    `(font-lock-comment-delimiter-face ((t (:inherit font-lock-comment-face))))
    `(font-lock-constant-face          ((t (:foreground ,kuronami-orange-00))))
    `(font-lock-doc-face               ((t (:foreground ,kuronami-green-00))))
-   `(font-lock-function-name-face     ((t (:foreground ,kuronami-blue-03))))
+   `(font-lock-function-name-face     ((t (:foreground ,kuronami-blue-02))))
    `(font-lock-keyword-face           ((t (:inherit font-lock-builtin-face))))
    `(font-lock-negation-char-face     ((t (:foreground ,kuronami-red-00))))
    `(font-lock-preprocessor-face      ((t (:foreground ,kuronami-green-03))))
@@ -110,7 +109,7 @@
 
    ;; Compilation:
    `(compilation-column-number  ((t (:foreground ,kuronami-white-00))))
-   `(compilation-line-number    ((t (:foreground ,kuronami-blue-03))))
+   `(compilation-line-number    ((t (:foreground ,kuronami-blue-02))))
    `(compilation-mode-line-exit ((t (:inherit compilation-info))))
    `(compilation-mode-line-fail ((t (:inherit compilation-error))))
 
@@ -127,18 +126,18 @@
    ;; Ido:
    `(ido-first-match ((t (:foreground ,kuronami-orange-00 :italic t))))
    `(ido-only-match  ((t (:foreground ,kuronami-green-03 :bold t :italic t))))
-   `(ido-subdir      ((t (:foreground ,kuronami-blue-03))))
+   `(ido-subdir      ((t (:foreground ,kuronami-blue-02))))
 
    ;; Mode Line:
-   `(mode-line           ((t (:background ,kuronami-gray-00 :foreground ,kuronami-black-00)))) ; Just colors. No "boxing" effect.
+   `(mode-line           ((t (:background ,kuronami-gray-01 :foreground ,kuronami-black-00)))) ; Just colors. No "boxing" effect.
    `(mode-line-buffer-id ((t nil)))
    `(mode-line-emphasis  ((t nil)))
-   `(mode-line-inactive  ((t (:background ,kuronami-black-00 :foreground ,kuronami-gray-00))))
+   `(mode-line-inactive  ((t (:background ,kuronami-gray-00 :foreground ,kuronami-gray-01))))
 
    ;; Org:
    `(org-block ((t (:inherit shadow :extend t :background ,kuronami-black-01))))
    `(org-done  ((t (:foreground ,kuronami-green-03 :weight bold))))
-   `(org-table ((t (:foreground ,kuronami-blue-02))))
+   `(org-table ((t (:foreground ,kuronami-blue-01))))
    `(org-todo  ((t (:foreground ,kuronami-orange-00 :weight bold))))
 
    ;; Whitespace:
@@ -161,7 +160,7 @@
 
    ;; Company:
    `(company-tooltip                 ((t (:background ,kuronami-black-01))))
-   `(company-tooltip-annotation      ((t (:foreground ,kuronami-blue-03))))
+   `(company-tooltip-annotation      ((t (:foreground ,kuronami-blue-02))))
    `(company-tooltip-common          ((t (:foreground ,kuronami-green-03))))
    `(company-tooltip-scrollbar-thumb ((t (:inherit company-tooltip))))
    `(company-tooltip-scrollbar-track ((t (:inherit company-tooltip))))
@@ -170,8 +169,8 @@
    ;;; Programming Language Faces:
 
    ;; Markdown:
-   `(markdown-code-face             ((t (:inherit fixed-pitch :foreground ,kuronami-blue-02))))
-   `(markdown-language-keyword-face ((t (:foreground ,kuronami-blue-02))))
+   `(markdown-code-face             ((t (:inherit fixed-pitch :foreground ,kuronami-blue-01))))
+   `(markdown-language-keyword-face ((t (:foreground ,kuronami-blue-01))))
 
    ;; Rust:
    `(rust-builtin-formatting-macro ((t (:inherit font-lock-preprocessor-face)))))) ; Macros get one color.

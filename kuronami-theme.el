@@ -1,9 +1,9 @@
-;;; kuronami-theme.el --- A deep blue theme with cool autumnal colors.
+;;; kuronami-theme.el --- A deep blue theme with cool autumnal colors
 
 ;; Author: Eric Chung <>
 ;; Version: 1.0
 ;; Filename: kuronami-theme.el
-;; Package-Requires: ((emacs "24"))
+;; Package-Requires: ((emacs "24.1"))
 ;; URL: https://github.com/super3ggo/kuronami
 ;; License: GPL-3+
 
@@ -81,7 +81,7 @@
    `(lazy-highlight      ((t (:background ,kuronami-green-01))))
    `(line-number         ((t (:foreground ,kuronami-blue-02))))
    `(link                ((t (:foreground ,kuronami-green-02 :bold t :underline t))))
-   `(link-visited        ((t (:inherit link :foreground ,kuronami-yellow-00))))
+   `(link-visited        ((t (:foreground ,kuronami-yellow-00 :bold t :underline t))))
    `(match               ((t (:inherit lazy-highlight))))
    `(minibuffer-prompt   ((t (:foreground ,kuronami-white-00))))
    `(region              ((t (:extend nil :background ,kuronami-blue-00)))) ; Mark to one past the final non-whitespace character kinda like Vi!
@@ -103,7 +103,7 @@
    `(font-lock-string-face            ((t (:foreground ,kuronami-green-02))))
    `(font-lock-type-face              ((t (:inherit font-lock-constant-face))))
    `(font-lock-variable-name-face     ((t (:inherit font-lock-function-name-face))))
-   `(font-lock-warning-face           ((t (:inherit font-lock-negation-char-face :bold t :italic t))))
+   `(font-lock-warning-face           ((t (:foreground ,kuronami-red-00 :bold t :italic t))))
 
    ;;; From this point, the Faces get organized alphabetically.
 
@@ -135,7 +135,7 @@
    `(mode-line-inactive  ((t (:background ,kuronami-gray-00 :foreground ,kuronami-gray-01))))
 
    ;; Org:
-   `(org-block ((t (:inherit shadow :extend t :background ,kuronami-black-01))))
+   `(org-block ((t (:extend t :background ,kuronami-black-01 :foreground ,kuronami-gray-01))))
    `(org-done  ((t (:foreground ,kuronami-green-03 :weight bold))))
    `(org-table ((t (:foreground ,kuronami-blue-01))))
    `(org-todo  ((t (:foreground ,kuronami-orange-00 :weight bold))))
@@ -169,7 +169,7 @@
    ;;; Programming Language Faces:
 
    ;; Markdown:
-   `(markdown-code-face             ((t (:inherit fixed-pitch :foreground ,kuronami-blue-01))))
+   `(markdown-code-face             ((t (:extend t :background ,kuronami-black-01 :foreground ,kuronami-gray-01))))
    `(markdown-language-keyword-face ((t (:foreground ,kuronami-blue-01))))
 
    ;; Rust:
@@ -181,3 +181,4 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'kuronami)
+;;; kuronami-theme.el ends here.

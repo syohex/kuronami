@@ -1,4 +1,4 @@
-;;; kuronami-theme.el --- A deep blue theme with cool autumnal colors
+;;; kuronami-theme.el --- A deep blue theme with cool autumnal colors -*- lexical-binding: t; -*-
 
 ;; Author: Eric Chung <>
 ;; Version: 1.0
